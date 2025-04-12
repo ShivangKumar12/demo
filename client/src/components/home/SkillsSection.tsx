@@ -26,12 +26,22 @@ const SkillsSection: React.FC = () => {
     },
     {
       title: 'Backend Engineering',
-      icon: 'palette',
+      icon: 'server',
       skills: [
         { name: 'REST APIs, Auth Systems', percentage: 90 },
         { name: 'Firebase Functions', percentage: 85 },
         { name: 'MongoDB Atlas', percentage: 85 },
         { name: 'PHP (Legacy Support)', percentage: 75 }
+      ]
+    },
+    {
+      title: 'Graphic Design',
+      icon: 'palette',
+      skills: [
+        { name: 'Adobe Photoshop', percentage: 88 },
+        { name: 'Corel Draw', percentage: 85 },
+        { name: 'Adobe Illustrator', percentage: 80 },
+        { name: 'Canva', percentage: 92 }
       ]
     }
   ];
@@ -45,6 +55,11 @@ const SkillsSection: React.FC = () => {
     'mobile-alt': (
       <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+      </svg>
+    ),
+    'server': (
+      <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" />
       </svg>
     ),
     'palette': (
@@ -103,7 +118,8 @@ const SkillsSection: React.FC = () => {
         
         <div className="mt-16 text-center">
           <a 
-            href="#" 
+            href="/Shivang_Kumar_Resume.pdf" 
+            download
             className="inline-flex items-center px-6 py-3 bg-primary text-primary-foreground font-medium rounded-full hover:bg-primary/90 transition-all"
           >
             Download Resume 
