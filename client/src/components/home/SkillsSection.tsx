@@ -8,30 +8,30 @@ const SkillsSection: React.FC = () => {
       title: 'Web Development',
       icon: 'code',
       skills: [
-        { name: 'React / Next.js', percentage: 95 },
-        { name: 'Node.js / Express', percentage: 90 },
-        { name: 'Three.js / WebGL', percentage: 85 },
-        { name: 'Firebase', percentage: 88 }
+        { name: 'React / Next.js', percentage: 90 },
+        { name: 'Node.js / Express', percentage: 88 },
+        { name: 'Firebase', percentage: 88 },
+        { name: 'MongoDB / MySQL', percentage: 85 }
       ]
     },
     {
-      title: 'Mobile Development',
+      title: 'App Development',
       icon: 'mobile-alt',
       skills: [
-        { name: 'React Native', percentage: 92 },
-        { name: 'Flutter', percentage: 80 },
-        { name: 'Swift / iOS', percentage: 75 },
-        { name: 'Kotlin / Android', percentage: 78 }
+        { name: 'React Native', percentage: 82 },
+        { name: 'Java (Android)', percentage: 75 },
+        { name: 'Kotlin', percentage: 65 },
+        { name: 'Firebase Integration', percentage: 80 }
       ]
     },
     {
-      title: 'Design',
+      title: 'Backend Engineering',
       icon: 'palette',
       skills: [
-        { name: 'UI/UX Design', percentage: 95 },
-        { name: 'Figma / Adobe XD', percentage: 94 },
-        { name: 'Photoshop / Illustrator', percentage: 88 },
-        { name: 'Motion Graphics', percentage: 82 }
+        { name: 'REST APIs, Auth Systems', percentage: 90 },
+        { name: 'Firebase Functions', percentage: 85 },
+        { name: 'MongoDB Atlas', percentage: 85 },
+        { name: 'PHP (Legacy Support)', percentage: 75 }
       ]
     }
   ];

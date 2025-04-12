@@ -186,7 +186,7 @@ const ContactSection: React.FC = () => {
                   </div>
                   <div>
                     <h4 className="font-medium mb-1">Email</h4>
-                    <a href="mailto:alex@portfolio3d.com" className="text-primary hover:underline">alex@portfolio3d.com</a>
+                    <a href="mailto:shivangkumarcgc@gmail.com" className="text-primary hover:underline">shivangkumarcgc@gmail.com</a>
                   </div>
                 </div>
                 
@@ -198,7 +198,7 @@ const ContactSection: React.FC = () => {
                   </div>
                   <div>
                     <h4 className="font-medium mb-1">Phone</h4>
-                    <a href="tel:+1234567890" className="text-primary hover:underline">+1 (234) 567-890</a>
+                    <a href="tel:+919852001237" className="text-primary hover:underline">+91 – 9852001237</a>
                   </div>
                 </div>
                 
@@ -210,7 +210,7 @@ const ContactSection: React.FC = () => {
                   </div>
                   <div>
                     <h4 className="font-medium mb-1">Location</h4>
-                    <p className="text-gray-300">San Francisco, California</p>
+                    <p className="text-gray-300">Landran, Mohali, Punjab – 140307</p>
                   </div>
                 </div>
                 
@@ -247,8 +247,8 @@ const ContactSection: React.FC = () => {
                 
                 <div className="pt-6">
                   <h4 className="font-medium mb-3">Working Hours</h4>
-                  <p className="text-gray-300">Monday - Friday: 9am - 6pm</p>
-                  <p className="text-gray-300">Saturday: 10am - 2pm</p>
+                  <p className="text-gray-300">Monday - Friday: 10am - 6pm</p>
+                  <p className="text-gray-300">Saturday: 11am - 2pm</p>
                   <p className="text-gray-300">Sunday: Closed</p>
                 </div>
               </div>

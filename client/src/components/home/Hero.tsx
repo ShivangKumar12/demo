@@ -55,9 +55,9 @@ const Hero: React.FC = () => {
           <div className="md:w-1/2 mb-12 md:mb-0">
             <div className="parallax-element" data-depth="0.2">
               <p className="text-primary font-orbitron uppercase tracking-widest mb-4">Welcome to my portfolio</p>
-              <h1 className="text-4xl md:text-6xl font-bold font-space mb-6">I'm <span className="text-primary">Alex Walker</span></h1>
+              <h1 className="text-4xl md:text-6xl font-bold font-space mb-6">I'm <span className="text-primary">Shivang Kumar</span></h1>
               <h2 className="text-2xl md:text-3xl font-space mb-8">Freelance <span ref={typingTextRef} className="text-primary"></span></h2>
-              <p className="text-gray-300 mb-8 max-w-lg">Creating immersive digital experiences with cutting-edge technologies. Specializing in web development, app design, and creative solutions for modern businesses.</p>
+              <p className="text-gray-300 mb-8 max-w-lg">Creating modern and efficient digital solutions with a strong focus on backend logic, responsive design, and clean architecture. I specialize in web applications, Android development, and backend engineering to support smart, secure, and scalable platforms.</p>
               
               <div className="flex flex-wrap gap-4">
                 <button 
@@ -90,13 +90,13 @@ const Hero: React.FC = () => {
                 className="absolute -top-4 -right-4 md:top-0 md:right-0 bg-background/80 backdrop-blur-sm px-4 py-2 rounded-full border border-primary/30"
                 delay={0.5}
               >
-                <span className="text-primary font-orbitron">10+ Years Exp</span>
+                <span className="text-primary font-orbitron">2+ Years Exp</span>
               </FloatingElement>
               <FloatingElement 
                 className="absolute -bottom-4 -left-4 md:bottom-0 md:left-0 bg-background/80 backdrop-blur-sm px-4 py-2 rounded-full border border-primary/30"
                 delay={1}
               >
-                <span className="text-primary font-orbitron">250+ Projects</span>
+                <span className="text-primary font-orbitron">B.Tech (CSE)</span>
               </FloatingElement>
             </FloatingElement>
           </div>

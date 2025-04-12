@@ -157,56 +157,58 @@ export class MemStorage implements IStorage {
   private seedProjects() {
     const sampleProjects: InsertProject[] = [
       {
-        title: 'E-commerce Platform',
-        description: 'Modern e-commerce solution with integrated payment gateways and inventory management.',
+        title: 'Parking Management System',
+        description: 'Developed a real-time smart parking system for digital vehicle slot management and tracking. Created responsive frontend in React.js and connected it with Express.js and MongoDB for efficient backend data flow.',
         category: 'web',
-        imageUrl: 'https://images.unsplash.com/photo-1547658719-da2b51169166',
-        tags: ['React', 'Node.js', 'MongoDB'],
+        imageUrl: 'https://images.unsplash.com/photo-1573348722427-f1d6819fdf98',
+        tags: ['React', 'Express', 'MongoDB'],
         liveUrl: 'https://example.com',
         codeUrl: 'https://github.com'
       },
       {
-        title: 'Fitness Tracker App',
-        description: 'Comprehensive fitness tracking application with workout plans and progress monitoring.',
+        title: 'Hand Gesture Recognition',
+        description: 'An experimental BTech project exploring computer vision and gesture inputs for automation and accessibility use-cases.',
         category: 'app',
-        imageUrl: 'https://images.unsplash.com/photo-1551650975-87deedd944c3',
-        tags: ['React Native', 'Firebase', 'Redux'],
-        liveUrl: 'https://appstore.com',
-        codeUrl: 'https://playstore.com'
+        imageUrl: 'https://images.unsplash.com/photo-1590845947376-2638caa89309',
+        tags: ['Computer Vision', 'ML', 'Python'],
+        liveUrl: null,
+        codeUrl: null
       },
       {
-        title: 'Tech Startup Branding',
-        description: 'Complete brand identity package including logo, color palette, typography, and brand guidelines.',
-        category: 'graphic',
-        imageUrl: 'https://images.unsplash.com/photo-1626785774573-4b799315345d',
-        tags: ['Logo Design', 'Brand Identity', 'Style Guide'],
-        liveUrl: 'https://behance.com'
+        title: 'College Website Backend',
+        description: 'As a web development intern, I helped develop and maintain the backend of the college website, improving data flow, authentication, and integration with frontend modules.',
+        category: 'web',
+        imageUrl: 'https://images.unsplash.com/photo-1577985051167-0d49eec21977',
+        tags: ['Node.js', 'Express', 'Firebase', 'MongoDB'],
+        liveUrl: null,
+        codeUrl: null
       },
       {
-        title: 'Music Festival Poster',
-        description: 'Event poster design for an annual music festival featuring vibrant colors and custom typography.',
+        title: 'Portfolio Design',
+        description: 'Created modern and clean portfolio design with interactive elements and responsive layout.',
         category: 'poster',
         imageUrl: 'https://images.unsplash.com/photo-1561070791-2526d30994b5',
-        tags: ['Poster Design', 'Typography', 'Adobe Illustrator'],
-        liveUrl: 'https://dribbble.com'
+        tags: ['Design', 'Figma', 'UI/UX'],
+        liveUrl: 'https://dribbble.com',
+        codeUrl: null
       },
       {
-        title: 'Analytics Dashboard',
-        description: 'Real-time analytics dashboard with customizable widgets and data visualization tools.',
+        title: 'E-commerce Platform',
+        description: 'Modern e-commerce solution with integrated payment gateways and inventory management.',
         category: 'web',
         imageUrl: 'https://images.unsplash.com/photo-1561070791-36c11767b26a',
-        tags: ['Vue.js', 'D3.js', 'Express'],
+        tags: ['React', 'Node.js', 'Express'],
         liveUrl: 'https://example.com/dashboard',
         codeUrl: 'https://github.com/dashboard'
       },
       {
-        title: 'Food Delivery App',
-        description: 'On-demand food delivery application with real-time order tracking and restaurant discovery.',
+        title: 'React Native Mobile App',
+        description: 'Mobile application with user authentication, data persistence, and responsive UI.',
         category: 'app',
         imageUrl: 'https://images.unsplash.com/photo-1555774698-0b77e0d5fac6',
-        tags: ['Flutter', 'Firebase', 'Google Maps API'],
-        liveUrl: 'https://appstore.com/foodapp',
-        codeUrl: 'https://playstore.com/foodapp'
+        tags: ['React Native', 'Firebase', 'Redux'],
+        liveUrl: 'https://appstore.com/app',
+        codeUrl: 'https://github.com/app'
       }
     ];
     
@@ -214,31 +216,15 @@ export class MemStorage implements IStorage {
       this.createProject(project);
     });
     
-    // Add some approved reviews
+    // Add a note about being new to freelancing - one placeholder review
     const sampleReviews: InsertReview[] = [
       {
-        name: "Sarah Johnson",
-        email: "sarah@example.com",
-        company: "TechStart",
+        name: "Portfolio Note",
+        email: "info@example.com",
+        company: "Chandigarh Engineering College",
         rating: 5,
-        comment: "Alex delivered an exceptional e-commerce platform that exceeded our expectations. The attention to detail and innovative features have significantly improved our online sales. Highly recommended!",
-        projectType: "web",
-      },
-      {
-        name: "Michael Thompson",
-        email: "michael@example.com",
-        company: "FitLife",
-        rating: 5,
-        comment: "The fitness tracking app Alex developed for us has received amazing feedback from our users. The intuitive UI and robust backend have made it our most successful digital product to date.",
-        projectType: "app",
-      },
-      {
-        name: "Emma Davis",
-        email: "emma@example.com",
-        company: "Creative Minds",
-        rating: 4,
-        comment: "Alex's branding work completely transformed our company's image. The logo design and brand guidelines have given us a cohesive identity that resonates with our target audience.",
-        projectType: "graphic",
+        comment: "New to freelancing! This section will soon feature real client testimonials as I begin working on more projects. My academic work and internship received positive feedback for clean code and effective problem-solving.",
+        projectType: "web"
       }
     ];
     
