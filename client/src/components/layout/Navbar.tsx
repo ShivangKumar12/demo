@@ -48,7 +48,7 @@ const Navbar: React.FC = () => {
               <span className="font-orbitron text-lg font-bold text-primary">P</span>
             </div>
           </div>
-          <span className="font-orbitron text-xl font-bold">PORTFOLIO<span className="text-primary">.3D</span></span>
+          <span className="font-orbitron text-xl font-bold">DEB<span className="text-primary">IAN</span></span>
         </Link>
         
         <div className="hidden md:flex space-x-8">

@@ -81,8 +81,8 @@ const Hero: React.FC = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-secondary/30 to-primary/30 rounded-full filter blur-xl opacity-70"></div>
               <div className="absolute w-full h-full flex items-center justify-center">
                 <img 
-                  src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3" 
-                  alt="Professional headshot" 
+                  src="/assets/profile.png" 
+                  alt="Professional headshot of Shivang Kumar" 
                   className="w-64 h-64 md:w-80 md:h-80 object-cover rounded-full border-4 border-primary/30 p-1"
                 />
               </div>
