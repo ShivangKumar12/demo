@@ -113,7 +113,7 @@ const Admin: React.FC = () => {
       description: "",
       category: "",
       imageUrl: "",
-      tags: [] as string[],
+      tags: "",
       liveUrl: "",
       codeUrl: "",
     },

@@ -45,7 +45,7 @@ const Navbar: React.FC = () => {
           <div className="relative w-10 h-10 mr-3">
             <div className="absolute inset-0 bg-primary/20 rounded-full animate-pulse-slow"></div>
             <div className="absolute inset-1 bg-background rounded-full flex items-center justify-center">
-              <span className="font-orbitron text-lg font-bold text-primary">P</span>
+              <span className="font-orbitron text-lg font-bold text-primary">S</span>
             </div>
           </div>
           <span className="font-orbitron text-xl font-bold">DEB<span className="text-primary">IAN</span></span>

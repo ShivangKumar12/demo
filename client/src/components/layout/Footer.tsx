@@ -11,10 +11,10 @@ const Footer: React.FC = () => {
               <div className="relative w-10 h-10 mr-3">
                 <div className="absolute inset-0 bg-primary/20 rounded-full animate-pulse-slow"></div>
                 <div className="absolute inset-1 bg-background rounded-full flex items-center justify-center">
-                  <span className="font-orbitron text-lg font-bold text-primary">P</span>
+                  <span className="font-orbitron text-lg font-bold text-primary">S</span>
                 </div>
               </div>
-              <span className="font-orbitron text-xl font-bold">PORTFOLIO<span className="text-primary">.3D</span></span>
+              <span className="font-orbitron text-xl font-bold">DEB<span className="text-primary">IAN</span></span>
             </Link>
             <p className="text-gray-400 mb-6">Creating immersive digital experiences with cutting-edge technologies for clients worldwide.</p>
             <div className="flex space-x-4">
@@ -130,7 +130,7 @@ const Footer: React.FC = () => {
         
         <div className="border-t border-primary/10 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-400 text-sm mb-4 md:mb-0">© 2023 Portfolio.3D. All rights reserved.</p>
+            <p className="text-gray-400 text-sm mb-4 md:mb-0">© 2023 DEBIAN. All rights reserved. Shivang Kumar</p>
             <div className="flex space-x-6">
               <a href="#" className="text-gray-400 hover:text-primary transition-colors text-sm">Privacy Policy</a>
               <a href="#" className="text-gray-400 hover:text-primary transition-colors text-sm">Terms of Service</a>
