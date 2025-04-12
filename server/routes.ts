@@ -17,29 +17,111 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
   
-  // Get projects by category
-  app.get("/api/projects/:category", async (req, res) => {
+  // Get projects by category or by ID
+  app.get("/api/projects/:param", async (req, res) => {
     try {
-      const category = req.params.category;
-      if (category === "all") {
-        const projects = await storage.getAllProjects();
-        res.json(projects);
+      const param = req.params.param;
+      
+      // Check if param is a numeric ID
+      if (/^\d+$/.test(param)) {
+        const projectId = parseInt(param);
+        const project = await storage.getProject(projectId);
+        
+        if (!project) {
+          return res.status(404).json({ message: "Project not found" });
+        }
+        
+        res.json(project);
       } else {
-        const projects = await storage.getProjectsByCategory(category);
-        res.json(projects);
+        // Handle as category
+        const category = param;
+        if (category === "all") {
+          const projects = await storage.getAllProjects();
+          res.json(projects);
+        } else {
+          const projects = await storage.getProjectsByCategory(category);
+          res.json(projects);
+        }
       }
     } catch (error) {
       res.status(500).json({ message: "Failed to fetch projects" });
     }
   });
   
-  // Get approved reviews
+  // Update project
+  app.patch("/api/projects/:id", async (req, res) => {
+    try {
+      const id = parseInt(req.params.id);
+      const updatedProject = await storage.updateProject(id, req.body);
+      
+      if (!updatedProject) {
+        return res.status(404).json({ message: "Project not found" });
+      }
+      
+      res.json(updatedProject);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to update project" });
+    }
+  });
+  
+  // Delete project
+  app.delete("/api/projects/:id", async (req, res) => {
+    try {
+      const id = parseInt(req.params.id);
+      const success = await storage.deleteProject(id);
+      
+      if (!success) {
+        return res.status(404).json({ message: "Project not found" });
+      }
+      
+      res.status(204).send();
+    } catch (error) {
+      res.status(500).json({ message: "Failed to delete project" });
+    }
+  });
+  
+  // Get reviews (all for admin, approved only for public)
   app.get("/api/reviews", async (req, res) => {
     try {
-      const reviews = await storage.getApprovedReviews();
+      const isAdmin = req.query.admin === 'true';
+      const reviews = isAdmin 
+        ? await storage.getAllReviews() 
+        : await storage.getApprovedReviews();
       res.json(reviews);
     } catch (error) {
       res.status(500).json({ message: "Failed to fetch reviews" });
+    }
+  });
+  
+  // Approve review
+  app.patch("/api/reviews/:id/approve", async (req, res) => {
+    try {
+      const id = parseInt(req.params.id);
+      const updatedReview = await storage.approveReview(id);
+      
+      if (!updatedReview) {
+        return res.status(404).json({ message: "Review not found" });
+      }
+      
+      res.json(updatedReview);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to approve review" });
+    }
+  });
+  
+  // Delete review
+  app.delete("/api/reviews/:id", async (req, res) => {
+    try {
+      const id = parseInt(req.params.id);
+      const success = await storage.deleteReview(id);
+      
+      if (!success) {
+        return res.status(404).json({ message: "Review not found" });
+      }
+      
+      res.status(204).send();
+    } catch (error) {
+      res.status(500).json({ message: "Failed to delete review" });
     }
   });
   

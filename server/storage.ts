@@ -17,13 +17,18 @@ export interface IStorage {
   
   // Project operations
   getAllProjects(): Promise<Project[]>;
+  getProject(id: number): Promise<Project | undefined>;
   getProjectsByCategory(category: string): Promise<Project[]>;
   createProject(project: InsertProject): Promise<Project>;
+  updateProject(id: number, project: InsertProject): Promise<Project | undefined>;
+  deleteProject(id: number): Promise<boolean>;
   
   // Review operations
+  getAllReviews(): Promise<Review[]>;
   getApprovedReviews(): Promise<Review[]>;
   createReview(review: InsertReview): Promise<Review>;
-  approveReview(id: number): Promise<Review>;
+  approveReview(id: number): Promise<Review | undefined>;
+  deleteReview(id: number): Promise<boolean>;
   
   // Resume operations
   getAllResumes(): Promise<Resume[]>;
@@ -87,6 +92,10 @@ export class MemStorage implements IStorage {
     return Array.from(this.projects.values());
   }
   
+  async getProject(id: number): Promise<Project | undefined> {
+    return this.projects.get(id);
+  }
+  
   async getProjectsByCategory(category: string): Promise<Project[]> {
     return Array.from(this.projects.values()).filter(
       (project) => project.category === category
@@ -95,12 +104,42 @@ export class MemStorage implements IStorage {
   
   async createProject(insertProject: InsertProject): Promise<Project> {
     const id = this.currentProjectId++;
-    const project: Project = { ...insertProject, id };
+    const project: Project = { 
+      ...insertProject, 
+      id,
+      liveUrl: insertProject.liveUrl || null,
+      codeUrl: insertProject.codeUrl || null
+    };
     this.projects.set(id, project);
     return project;
   }
   
+  async updateProject(id: number, insertProject: InsertProject): Promise<Project | undefined> {
+    const existingProject = this.projects.get(id);
+    if (!existingProject) {
+      return undefined;
+    }
+    
+    const updatedProject: Project = { 
+      ...insertProject, 
+      id,
+      liveUrl: insertProject.liveUrl || null,
+      codeUrl: insertProject.codeUrl || null
+    };
+    
+    this.projects.set(id, updatedProject);
+    return updatedProject;
+  }
+  
+  async deleteProject(id: number): Promise<boolean> {
+    return this.projects.delete(id);
+  }
+  
   // Review operations
+  async getAllReviews(): Promise<Review[]> {
+    return Array.from(this.reviews.values());
+  }
+  
   async getApprovedReviews(): Promise<Review[]> {
     return Array.from(this.reviews.values()).filter(
       (review) => review.approved
@@ -111,20 +150,31 @@ export class MemStorage implements IStorage {
     const id = this.currentReviewId++;
     const createdAt = new Date();
     const approved = false; // All reviews start as unapproved
-    const review: Review = { ...insertReview, id, createdAt, approved };
+    const review: Review = { 
+      ...insertReview, 
+      id, 
+      createdAt, 
+      approved,
+      company: insertReview.company || null,
+      projectType: insertReview.projectType || null
+    };
     this.reviews.set(id, review);
     return review;
   }
   
-  async approveReview(id: number): Promise<Review> {
+  async approveReview(id: number): Promise<Review | undefined> {
     const review = this.reviews.get(id);
     if (!review) {
-      throw new Error(`Review with id ${id} not found`);
+      return undefined;
     }
     
     const updatedReview: Review = { ...review, approved: true };
     this.reviews.set(id, updatedReview);
     return updatedReview;
+  }
+  
+  async deleteReview(id: number): Promise<boolean> {
+    return this.reviews.delete(id);
   }
   
   // Resume operations
