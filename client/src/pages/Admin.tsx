@@ -25,9 +25,20 @@ const ProjectSchema = z.object({
   description: z.string().min(10, { message: "Description must be at least 10 characters" }),
   category: z.string().min(1, { message: "Please select a category" }),
   imageUrl: z.string().url({ message: "Please enter a valid image URL" }),
-  tags: z.string().transform((val) => val.split(',').map(tag => tag.trim())).or(z.array(z.string())),
-  liveUrl: z.string().url({ message: "Please enter a valid URL" }).nullable().optional(),
-  codeUrl: z.string().url({ message: "Please enter a valid URL" }).nullable().optional(),
+  tags: z.union([
+    z.string().transform(val => val.split(',').map(tag => tag.trim())),
+    z.array(z.string())
+  ]),
+  liveUrl: z.union([
+    z.string().url({ message: "Please enter a valid URL" }),
+    z.string().length(0),
+    z.undefined()
+  ]),
+  codeUrl: z.union([
+    z.string().url({ message: "Please enter a valid URL" }),
+    z.string().length(0), 
+    z.undefined()
+  ]),
 });
 
 const ContactInfoSchema = z.object({
@@ -134,8 +145,8 @@ const Admin: React.FC = () => {
       
       const formattedData = {
         ...data,
-        liveUrl: data.liveUrl || null,
-        codeUrl: data.codeUrl || null,
+        liveUrl: data.liveUrl && data.liveUrl.length > 0 ? data.liveUrl : '',
+        codeUrl: data.codeUrl && data.codeUrl.length > 0 ? data.codeUrl : '',
       };
       
       const response = await apiRequest(method, endpoint, formattedData);
@@ -240,7 +251,7 @@ const Admin: React.FC = () => {
       description: project.description,
       category: project.category,
       imageUrl: project.imageUrl,
-      tags: project.tags.join(', '),
+      tags: Array.isArray(project.tags) ? project.tags.join(', ') : '',
       liveUrl: project.liveUrl || '',
       codeUrl: project.codeUrl || '',
     });
