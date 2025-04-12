@@ -25,7 +25,7 @@ const ProjectSchema = z.object({
   description: z.string().min(10, { message: "Description must be at least 10 characters" }),
   category: z.string().min(1, { message: "Please select a category" }),
   imageUrl: z.string().url({ message: "Please enter a valid image URL" }),
-  tags: z.string().transform((val) => val.split(',').map(tag => tag.trim())),
+  tags: z.string().transform((val) => val.split(',').map(tag => tag.trim())).or(z.array(z.string())),
   liveUrl: z.string().url({ message: "Please enter a valid URL" }).nullable().optional(),
   codeUrl: z.string().url({ message: "Please enter a valid URL" }).nullable().optional(),
 });
@@ -109,17 +109,21 @@ const Admin: React.FC = () => {
   });
   
   // Fetch projects
-  const { data: projects, isLoading: isLoadingProjects } = useQuery({
+  const { data: projects = [], isLoading: isLoadingProjects } = useQuery<Project[]>({
     queryKey: ['/api/projects'],
     staleTime: 10000,
     enabled: isAuthenticated,
   });
   
   // Fetch reviews
-  const { data: reviews, isLoading: isLoadingReviews } = useQuery({
+  const { data: reviews = [], isLoading: isLoadingReviews } = useQuery<Review[]>({
     queryKey: ['/api/reviews'],
     staleTime: 10000,
     enabled: isAuthenticated,
+    queryFn: async () => {
+      const response = await apiRequest('GET', '/api/reviews?admin=true');
+      return response.json();
+    },
   });
   
   // Create/Update project mutation
